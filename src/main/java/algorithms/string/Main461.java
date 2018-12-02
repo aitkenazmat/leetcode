@@ -3,7 +3,7 @@ package algorithms.string;
 /**
  *
  * 461. Hamming Distance
- *
+ * 111
  * */
 
 public class Main461 {
