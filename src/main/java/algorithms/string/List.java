@@ -3,6 +3,11 @@ package algorithms.string;
 
 import java.util.LinkedList;
 
+/*
+*
+* slowly
+*
+* */
 public class List {
 
     public static void main(String[] args) {
