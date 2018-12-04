@@ -1,0 +1,22 @@
+<rep:StatReportsMessage xmlns:rep="http://ivc.kz/statreports/reports">
+    <rep:messageId>24803791</rep:messageId>
+    <rep:messageSource>cleared_data</rep:messageSource>
+    <rep:catalog>
+        <rep:period_kindlist_id>801</rep:period_kindlist_id>
+        <rep:form_id>3140</rep:form_id>
+        <rep:respondent>
+            <rep:bin>123456789103</rep:bin>
+            <rep:stat_kod>0037036729</rep:stat_kod>
+            <rep:te_id>253167</rep:te_id>
+        </rep:respondent>
+    </rep:catalog>
+    <rep:reportsState>
+        <rep:status_code>REPORTED</rep:status_code>
+        <rep:status_date>2018-12-03T17:09:10.000+06:00</rep:status_date>
+        <rep:has_error>false</rep:has_error>
+        <rep:in_catalog>true</rep:in_catalog>
+        <rep:is_late>false</rep:is_late>
+        <rep:source_code>RESPONDENT</rep:source_code>
+        <rep:is_null>false</rep:is_null>
+    </rep:reportsState>
+</rep:StatReportsMessage>

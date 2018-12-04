@@ -1,16 +1,10 @@
 package algorithms.string;
 
-import java.util.*;
+import java.util.LinkedList;
 import java.util.List;
 
-/**
- *
- * 590. N-ary Tree Postorder Traversal
- * Created by WWW on 04.12.2018.
- */
-public class Main590 {
+public class Main589 {
     public static void main(String[] args) {
-
         Node root = new Node();
 
         Node children2 = new Node();
@@ -40,17 +34,13 @@ public class Main590 {
         root.children = nodeList1;
         children3.children = nodeList2;
 
-        for (Integer i : postorder(root)) {
+        for (Integer i : preorder(root)) {
             System.out.println(i);
         }
-
-
     }
 
 
-
-
-    public static java.util.List<Integer> postorder(Node root) {
+    public  static  List<Integer> preorder(Node root) {
         List<Integer> result = new LinkedList<Integer>();
         order(root,result);
         return result;
@@ -58,14 +48,15 @@ public class Main590 {
 
     public static void order(Node root,List<Integer> result) {
         if (root == null) return;
+        result.add(root.val);
         if (root.children != null) {
             for (Node child: root.children) {
                 order(child, result);
             }
         }
-        result.add(root.val);
+
+
     }
 }
-
 
 
