@@ -20,45 +20,27 @@ public class Main700 {
         root1.left = root3 ;
         root1.right = root4;
 
-        searchBST(root,2);
+        TreeNode treeNode = searchBST(root,2);
+
+
+
+        System.out.println(treeNode.val);
+        System.out.println(treeNode.left.val);
+        System.out.println(treeNode.right.val);
     }
 
     public static TreeNode searchBST(TreeNode root, int val) {
 
-        TreeNode res = new TreeNode(-6);
+        if (root==null)
+            return null;
+        if (root.val == val)
+            return root;
 
-        search(root, res,val);
+        if (val<root.val)
+            return searchBST(root.left,val);
+        else
+            return searchBST(root.right,val);
 
-        return null;
     }
 
-
-    public  static void  search(TreeNode treeNode, TreeNode res, int seachInt){
-
-        if (treeNode==null) return;
-
-        if (treeNode.val != seachInt) {
-
-            if (treeNode.left.val!= seachInt) {
-
-            } else {
-                res.val = seachInt;
-                res.left.val = treeNode.left.val;
-                res.right.val = treeNode.right.val;
-            }
-
-            if (treeNode.right.val!=seachInt) {
-
-            } else {
-                res.val = seachInt;
-                res.left.val = treeNode.left.val;
-                res.right.val = treeNode.right.val;
-            }
-
-        } else {
-            res.val = seachInt;
-            res.left.val = treeNode.left.val;
-            res.right.val = treeNode.right.val;
-        }
-    }
 }
