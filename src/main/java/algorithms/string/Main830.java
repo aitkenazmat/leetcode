@@ -26,28 +26,24 @@ public class Main830 {
 
         for (int i = 0; i < chars.length ; i++) {
 
-            System.out.println(chars[i]);
-           // System.out.println(getCount(chars[i], chars));
+            //System.out.println(i + " " + chars[i]);
+           //System.out.println(getCount(chars[i], chars));
+
+            System.out.println(getCount(i, chars[i], chars));
         }
 
         return null;
     }
 
-    public static int getCount(char c, char[]chars){
+    public static int getCount(int index, char c, char[]chars){
 
-        int count = 0;
-        for (int i =0; i<chars.length; i++) {
-            if (c==chars[i]){
-                count++;
-            } else {
-                if (count>3) {
-                    count = 0;
-                    break;
-                }
-
+        if (chars.length>index+1) {
+            if (c==chars[index+1] && c == chars[index +2]) {
+                //System.out.println("последователность существует " + c);
+                return index;
             }
         }
-        return count;
+        return -1;
     }
 
 
