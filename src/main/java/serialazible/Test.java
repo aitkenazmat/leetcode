@@ -1,12 +1,34 @@
 package serialazible;
 
 import java.io.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Test {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        String fileName = "filename.ser";
-        serializable(fileName);
-        deserialization(fileName);
+
+
+
+        User user = new User("aza1",28);
+        User user1 = new User("aza2",28);
+
+        System.out.println(user.hashCode());
+        System.out.println(user1.hashCode());
+
+        HashSet<User> set = new HashSet<>();
+        set.add(user);
+        set.add(user1);
+
+
+
+        set.forEach(System.out::println);
+
+
+
+
+//        String fileName = "filename.ser";
+//        serializable(fileName);
+//        deserialization(fileName);
     }
 
 

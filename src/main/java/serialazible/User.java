@@ -1,6 +1,7 @@
 package serialazible;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class User implements Serializable {
     private static final long serialVersionUID = 2613213213123L;
@@ -30,11 +31,21 @@ public class User implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+       return true;
+    }
+
+    @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", mail='" + mail + '\'' +
                 '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
     }
 }
