@@ -2,65 +2,67 @@ package algorithms.array;
 
 public class IslandPerimeter {
     public static void main(String[] args) {
-        int[][]grid = new int[][]{ {0,1,0,0},{1,1,1,0},{0,1,0,0},{1,1,0,0},{5,5,5,5} };
-        islandPerimeter(grid);
+        int[][]grid = new int[][]{ {0,1,0,0},{1,1,1,0},{0,1,0,0},{1,1,0,0},{0,1,0,0} };
+        System.out.println(islandPerimeter(grid));
     }
 
     public static int islandPerimeter(int[][] grid) {
+
+        int totalSum = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length ; j++) {
 
                 if (grid[i][j] == 1) {
-                    getPerimeter(grid, i, j);
+                    totalSum+=getPerimeter(grid, i, j);
                 }
             }
         }
 
-        return 0;
+        return totalSum;
     }
 
     public static int getPerimeter(int[][]grid, int i , int j) {
-        int  up = i-1;
-        int down = i+1;
+        int count = 0;
 
-        int left = j-1;
-        int right = j+1;
-
-        int c = 0;
-        if(up >=0 && left >=0) {
-            if (grid[up][left]==0) {
-                c++;
+        try {
+            int up = grid[i-1][j];
+            if (up==0) {
+                count++;
             }
-        } else {
-            c++;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            count++;
         }
 
-        if(up >=0 && right >=0) {
-            if (grid[up][right]==0) {
-                c++;
+        try {
+            int down = grid[i+1][j];
+            if (down == 0) {
+                count++;
             }
-        } else {
-            c++;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            count++;
         }
 
 
-        if(down >=0 && left >=0) {
-            if (grid[down][left]==0) {
-                c++;
+        try {
+            int right = grid[i][j+1];
+            if (right == 0) {
+                count++;
             }
-        } else {
-            c++;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            count++;
         }
 
-        if(down >=0 && right >=0) {
-            if (grid[down][right]==0) {
-                c++;
+        try {
+            int left = grid[i][j-1];
+            if (left == 0) {
+                count++;
             }
-        } else {
-            c++;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            count++;
         }
 
 
-        return 0;
+
+        return count;
     }
 }
