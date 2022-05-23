@@ -3,20 +3,56 @@ package algorithms.tree;
 public class SumOfRootToLeafBinaryNumbers {
     public static void main(String[] args) {
 
+        TreeNode r1 = new TreeNode(7);
+        TreeNode r2 = new TreeNode(2);
 
-        TreeNode rootRightLeft = new TreeNode(0);
-        TreeNode rootRightRight = new TreeNode(1);
-        TreeNode rootRight = new TreeNode(1,rootRightLeft,rootRightRight);
+        TreeNode root = new TreeNode(4, r2, r1);
+
+        TreeNode treeNode = insertIntoBST(null, 5);
+        System.out.println(treeNode);
+    }
 
 
-        TreeNode rootLeftRight = new TreeNode(1);
-        TreeNode rootLeftLeft = new TreeNode(0);
-        TreeNode rootLeft = new TreeNode(0, rootLeftLeft, rootLeftRight);
+    public static TreeNode insertIntoBST(TreeNode root, int val) {
+        if (root != null) {
+            if (root.val < val) {
+                if (root.right != null) {
+                    insertIntoBST(root.right, val);
+                } else {
+                    TreeNode node =  new TreeNode(val);
+                    root.right = node;
+                }
+
+            } else {
+                if (root.left != null) {
+                    insertIntoBST(root.left, val);
+                } else {
+                    TreeNode node =  new TreeNode(val);
+                    root.left = node;
+                }
+
+            }
+        } else {
+            TreeNode treeNode = new TreeNode(val);
+            return treeNode;
+        }
+
+        return root;
+
+    }
 
 
-        TreeNode root = new TreeNode(1, rootLeft, rootRight);
+    public static TreeNode searchBST(TreeNode root, int val) {
 
-        sumRootToLeaf(root);
+        if (root==null || root.val == val) {
+            return root;
+        } else {
+            if (root.val > val) {
+               return searchBST(root.left, val);
+            }  else {
+                return searchBST(root.right, val);
+            }
+        }
     }
 
 
