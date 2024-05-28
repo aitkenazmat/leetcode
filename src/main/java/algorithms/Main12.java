@@ -1,10 +1,22 @@
 package algorithms;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Main12 {
     public static void main(String[] args) {
 
-        String s = intToRoman(2090);
-        System.out.println(s);
+
+     String s = "1968-06-25T00:00:00.000+00:00";
+
+
+
+        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'00:00:00.000+00:00");
+        LocalDate datetime = LocalDate.parse(s, pattern);
+        System.out.println(datetime);
+
+
     }
 
     public static String intToRoman(int num) {
