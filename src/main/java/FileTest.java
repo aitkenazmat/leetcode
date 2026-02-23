@@ -6,28 +6,24 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class FileTest {
 
     public static void main(String[] args) throws ParseException, DatatypeConfigurationException {
+        OffsetDateTime now1 = OffsetDateTime.now().minusDays(1).minusMinutes(1);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
-        LocalDateTime dateTime = LocalDateTime.parse("2021-12-06T00:00:00+06:00", formatter);
-
-        LocalDateTime localDateTime = dateTime.minusMinutes(10);
+        OffsetDateTime now = OffsetDateTime.now();
 
 
-        ZonedDateTime zoneDateTime = ZonedDateTime.of(localDateTime, ZoneId.systemDefault());
-        GregorianCalendar gregorianCalendar = GregorianCalendar.from(zoneDateTime);
 
-        XMLGregorianCalendar xmlGregorianCalendar =
-                DatatypeFactory.newInstance()
-                        .newXMLGregorianCalendar(gregorianCalendar);
+        long between = ChronoUnit.DAYS.between(now1, now );
 
-        System.out.println("XMLGregorianCalendar format : "
-                + xmlGregorianCalendar);
+        System.out.println(between);
 
 
     }
