@@ -1,22 +1,18 @@
 package algorithms;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import algorithms.string.ListNode;
 
 public class Main12 {
     public static void main(String[] args) {
 
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addAtHead(7);
+        myLinkedList.addAtHead(6);
+        myLinkedList.addAtHead(5);
+        myLinkedList.addAtTail(8);
+        myLinkedList.addAtIndex(30, 9);
 
-     String s = "1968-06-25T00:00:00.000+00:00";
-
-
-
-        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'00:00:00.000+00:00");
-        LocalDate datetime = LocalDate.parse(s, pattern);
-        System.out.println(datetime);
-
-
+        System.out.println(myLinkedList.get(0));
     }
 
     public static String intToRoman(int num) {
