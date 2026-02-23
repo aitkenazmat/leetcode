@@ -1,10 +1,18 @@
 package algorithms;
 
+import algorithms.string.ListNode;
+
 public class Main12 {
     public static void main(String[] args) {
 
-        String s = intToRoman(2090);
-        System.out.println(s);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addAtHead(7);
+        myLinkedList.addAtHead(6);
+        myLinkedList.addAtHead(5);
+        myLinkedList.addAtTail(8);
+        myLinkedList.addAtIndex(30, 9);
+
+        System.out.println(myLinkedList.get(0));
     }
 
     public static String intToRoman(int num) {
