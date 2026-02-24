@@ -5,7 +5,10 @@ import java.util.LinkedList;
 public class Main2161 {
   public static void main(String[] args) {
 
-   // pivotArray(int[]{}, 10);
+    int[] arr = {5,4, 3, 2, 1, 5, 9, 8,7,6,5};
+    int[] ints = pivotArray2(arr, 5);
+
+    System.out.println("");
   }
 
   public static int[] pivotArray(int[] nums, int pivot) {
@@ -42,5 +45,34 @@ public class Main2161 {
     }
 
     return arr;
+  }
+
+  public static int[] pivotArray2(int[] nums, int pivot) {
+
+    int[] arr = new int[nums.length];
+
+    int leftIdx = 0;
+    int rightIdx = nums.length-1;
+
+   for (int num : nums) {
+     if (num < pivot) {
+       arr[leftIdx++] = num;
+     }
+   }
+
+    for (int i = nums.length - 1; i >= 0; i--) {
+      if (nums[i] > pivot) {
+        arr[rightIdx--] = nums[i];
+      }
+    }
+
+    while (leftIdx <= rightIdx) {
+      arr[leftIdx++] = pivot;
+    }
+
+
+
+    return arr;
+
   }
 }
